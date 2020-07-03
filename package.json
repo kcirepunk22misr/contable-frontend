@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.1.11",
+    "@angular/animations": "^10.0.2",
     "@angular/common": "~9.1.11",
     "@angular/compiler": "~9.1.11",
     "@angular/core": "~9.1.11",
@@ -20,7 +20,9 @@
     "@angular/platform-browser-dynamic": "~9.1.11",
     "@angular/router": "~9.1.11",
     "animate.css": "^4.1.0",
+    "ngx-toastr": "^12.1.0",
     "rxjs": "~6.5.4",
+    "sweetalert2": "^9.15.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },

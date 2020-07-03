@@ -22,16 +22,51 @@
             Servicios
           </li>
           <li class="nav-item">
-            <div id="submenu-1" class="collapse submenu show">
+            <a
+              class="nav-link"
+              data-toggle="collapse"
+              aria-expanded="false"
+              data-target="#clientes"
+              aria-controls="clientes"
+            >
+              <i class="fas fa-users"></i>Clientes
+            </a>
+            <div id="clientes" class="collapse submenu">
               <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="dashboard-finance.html">Clientes</a>
+                <li *ngFor="let rlClient of routerLinkClient" class="nav-item">
+                  <a
+                    class="nav-link"
+                    [routerLink]="[rlClient.url]"
+                    routerLinkActive="active"
+                    class="nav-link"
+                    href="pages/general-table.html"
+                    >{{ rlClient.name }}</a
+                  >
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="dashboard-sales.html">Locales</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="dashboard-sales.html">Facturas</a>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#"
+              data-toggle="collapse"
+              aria-expanded="false"
+              data-target="#locales"
+              aria-controls="locales"
+              ><i class="fas fa-building"></i>Locales</a
+            >
+            <div id="locales" class="collapse submenu">
+              <ul class="nav flex-column">
+                <li *ngFor="let rlLocal of routerLinkLocal" class="nav-item">
+                  <a
+                    class="nav-link"
+                    [routerLink]="[rlLocal.url]"
+                    routerLinkActive="active"
+                    class="nav-link"
+                    href="pages/general-table.html"
+                    >{{ rlLocal.name }}</a
+                  >
                 </li>
               </ul>
             </div>

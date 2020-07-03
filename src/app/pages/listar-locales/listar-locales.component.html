@@ -1,0 +1,107 @@
+<!-- ============================================================== -->
+<!-- pageheader -->
+<!-- ============================================================== -->
+<div class="row animate__animated animate__fadeIn">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="page-header">
+      <h2 class="pageheader-title">Listado De Locales</h2>
+    </div>
+  </div>
+</div>
+<!-- ============================================================== -->
+<!-- end pageheader -->
+<!-- ============================================================== -->
+<div class="row animate__animated animate__fadeIn">
+  <!-- ============================================================== -->
+  <!-- basic table  -->
+  <!-- ============================================================== -->
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="card">
+      <h5 class="card-header">Informacion de Locales</h5>
+      <div class="card-body">
+        <!-- <div
+          *ngIf="clients.length === 0"
+          class="alert alert-primary"
+          role="alert"
+        >
+          No se encuentra registro de cliente en esta pagina
+        </div> -->
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered first">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>name</th>
+                <th>location</th>
+                <th>price</th>
+                <th>vat</th>
+                <th>observation</th>
+                <th>Ajustes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let locale of locales; trackBy: trackByFn">
+                <td>{{ locale.id }}</td>
+                <td>{{ locale.name }}</td>
+                <td>{{ locale.location }}</td>
+                <td>{{ locale.price }}</td>
+                <td>{{ locale.vat }}</td>
+                <td>{{ locale.observation }}</td>
+                <td>
+                  <a
+                    [routerLink]="['/contable/update-local', locale.id]"
+                    class="btn btn-sm btn-info mr-2 mb-sm-0 mb-2 text-white"
+                    ><i class="fas fa-edit"></i
+                  ></a>
+
+                  <button
+                    (click)="deleteLocal(locale.id, locale.name)"
+                    class="btn btn-sm btn-danger"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <nav class="mt-4" aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a
+                class="page-link"
+                [routerLink]="['/contable/locales']"
+                [queryParams]="{ q: prev_page }"
+                >Anterior</a
+              >
+            </li>
+            <li
+              class="page-item"
+              routerLinkActive="active"
+              *ngFor="let contado of contador; let i = index"
+            >
+              <a
+                class="page-link"
+                [routerLink]="['/contable/locales']"
+                [queryParams]="{ q: number_pages[i] }"
+                >{{ contado + 1 }}</a
+              >
+            </li>
+            <li class="page-item">
+              <a
+                class="page-link"
+                [routerLink]="['/contable/locales']"
+                [queryParams]="{ q: next_page }"
+                >Siguiente</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- end basic table  -->
+  <!-- ============================================================== -->
+</div>

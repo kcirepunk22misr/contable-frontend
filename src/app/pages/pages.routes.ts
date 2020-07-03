@@ -2,13 +2,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { Notfound404Component } from '../notfound404/notfound404.component';
+import { AuthGuard } from '../guards/auth.guard';
+import { ListarClientesComponent } from './listar-clientes/listar-clientes.component';
+import { LocalesComponent } from './locales/locales.component';
+import { ListarLocalesComponent } from './listar-locales/listar-locales.component';
 
 const routes: Routes = [
   {
-    path: 'inicio',
+    path: 'contable',
     component: PagesComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: '', component: ClientesComponent },
+      { path: 'user', component: ClientesComponent },
+      { path: 'users', component: ListarClientesComponent },
+      { path: 'update-user/:id', component: ClientesComponent },
+      { path: 'local', component: LocalesComponent },
+      { path: 'locales', component: ListarLocalesComponent },
+      { path: 'update-local/:id', component: LocalesComponent },
       { path: '**', pathMatch: 'full', component: Notfound404Component },
     ],
   },

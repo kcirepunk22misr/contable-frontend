@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="page-header" id="top">
-          <h2 *ngIf="!id" class="pageheader-title">Registrar nuevo cliente</h2>
-          <h2 *ngIf="id" class="pageheader-title">Actualizar Cliente</h2>
+          <h2 *ngIf="id" class="pageheader-title">Actualizar Local</h2>
+          <h2 *ngIf="!id" class="pageheader-title">Registrar Un Local</h2>
           <hr />
 
           <!-- ============================================================== -->
@@ -13,20 +13,21 @@
           <div class="row">
             <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
               <div class="card">
-                <h5 class="card-header">Informacion Del Cliente</h5>
+                <h5 class="card-header">Informacion Del Local</h5>
                 <div class="card-body">
                   <div *ngIf="error" class="alert alert-danger" role="alert">
-                    No se encontro ningun cliente
+                    No se encontro ningun local
                   </div>
                   <form
                     *ngIf="!error"
-                    #formClient
                     autocomplete="off"
                     [formGroup]="forma"
                     (ngSubmit)="!id ? save() : update()"
                   >
                     <div class="form-group">
-                      <label for="name" class="col-form-label">Nombre</label>
+                      <label for="name" class="col-form-label"
+                        >Nombre Del Local</label
+                      >
                       <input
                         id="name"
                         formControlName="name"
@@ -39,76 +40,69 @@
                       </span>
                     </div>
                     <div class="form-group">
-                      <label for="nit_number">NIT</label>
+                      <label for="location">Direccion del local</label>
                       <input
-                        id="nit_number"
-                        formControlName="nit_number"
+                        id="location"
+                        formControlName="location"
                         type="text"
                         class="form-control"
-                        [class.is-invalid]="getValidadeFormName('nit_number')"
+                        [class.is-invalid]="getValidadeFormName('location')"
                       />
                       <span class="invalid-feedback">
-                        El NIT es obligatorio*
+                        La direccion es obligatorio*
                       </span>
                     </div>
                     <div class="form-group">
-                      <label for="phone_number" class="col-form-label"
-                        >Telefono</label
+                      <label for="price" class="col-form-label"
+                        >Precio del local</label
                       >
                       <input
                         id="phone_number"
                         type="number"
                         class="form-control"
-                        formControlName="phone_number"
-                        placeholder="+57 3003243242"
-                        [class.is-invalid]="getValidadeFormName('phone_number')"
+                        formControlName="price"
+                        [class.is-invalid]="getValidadeFormName('price')"
                       />
                       <span class="invalid-feedback">
-                        El numero es obligatorio*
+                        El precio es obligatorio*
                       </span>
                     </div>
                     <div class="form-group">
-                      <label for="city">Ciudad</label>
+                      <label for="vat">IVA</label>
                       <input
-                        id="city"
+                        id="vat"
                         type="text"
-                        formControlName="city"
+                        placeholder="0-19"
+                        formControlName="vat"
                         class="form-control"
-                        [class.is-invalid]="getValidadeFormName('city')"
+                        [class.is-invalid]="getValidadeFormName('vat')"
                       />
                       <span class="invalid-feedback">
-                        La ciudad es obligatoria*
+                        El IVA es obligatoria*
                       </span>
                     </div>
                     <div class="form-group">
-                      <label for="address">Dirrecion</label>
-                      <input
-                        id="address"
+                      <label for="observation">Observaciones</label>
+                      <textarea
+                        id="observation"
                         type="text"
-                        placeholder="Cartagena calle 30 #40-b43"
-                        formControlName="address"
+                        style="max-height: 180px;"
+                        formControlName="observation"
                         class="form-control"
-                        [class.is-invalid]="getValidadeFormName('address')"
-                      />
+                        [class.is-invalid]="getValidadeFormName('observation')"
+                      >
+                      </textarea>
                       <span class="invalid-feedback">
-                        La dirrecion es obligatoria
+                        La obersacion es obligatoria
                       </span>
                     </div>
                     <div class="row">
                       <div class="col-12 pl-0 text-right">
-                        <button
-                          *ngIf="!id"
-                          type="submit"
-                          class="btn btn-space btn-primary"
-                        >
-                          Guardar Cliente <i class="far fa-user"></i>
+                        <button *ngIf="!id" type="submit" class="btn btn-space btn-primary">
+                          Guardar Local <i class="far fa-building"></i>
                         </button>
-                        <button
-                          *ngIf="id"
-                          type="submit"
-                          class="btn btn-space btn-success"
-                        >
-                          Actualizar Cliente <i class="far fa-user"></i>
+                        <button *ngIf="id" type="submit" class="btn btn-space btn-success">
+                          Actualizar Cliente <i class="far fa-building"></i>
                         </button>
                       </div>
                     </div>
