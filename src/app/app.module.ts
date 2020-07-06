@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './SignInSignUp/login/login.component';
 import { Notfound404Component } from './notfound404/notfound404.component';
 import { RegisterComponent } from './SignInSignUp/register/register.component';
+import { FormClientComponent } from './components/form-client/form-client.component';
+import { FormLocaleComponent } from './components/form-locale/form-locale.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { RegisterComponent } from './SignInSignUp/register/register.component';
     LoginComponent,
     Notfound404Component,
     RegisterComponent,
+    FormClientComponent,
+    FormLocaleComponent,
   ],
   imports: [
     BrowserModule,

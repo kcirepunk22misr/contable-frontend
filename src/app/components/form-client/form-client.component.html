@@ -1,0 +1,93 @@
+<div class="row animate__animated animate__fadeIn">
+  <div class="col-xl-10">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header" id="top">
+          <h2>Informacion Del Cliente</h2>
+          <hr />
+
+          <!-- ============================================================== -->
+          <!--  Create User  -->
+          <!-- ============================================================== -->
+          <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+              <div class="card">
+                <h5 class="card-header">Informacion Del Cliente</h5>
+                <div class="card-body">
+                  <form #formClient autocomplete="off" [formGroup]="forma">
+                    <div class="form-group">
+                      <label for="name" class="col-form-label">Nombre</label>
+                      <input
+                        id="name"
+                        formControlName="name"
+                        type="text"
+                        class="form-control"
+                      />
+                      <span class="invalid-feedback">
+                        El nombre es obligatorio*
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="nit_number">NIT</label>
+                      <input
+                        id="nit_number"
+                        formControlName="nit_number"
+                        type="text"
+                        class="form-control"
+                      />
+                      <span class="invalid-feedback">
+                        El NIT es obligatorio*
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="phone_number" class="col-form-label"
+                        >Telefono</label
+                      >
+                      <input
+                        id="phone_number"
+                        type="number"
+                        class="form-control"
+                        formControlName="phone_number"
+                        placeholder="+57 3003243242"
+                      />
+                      <span class="invalid-feedback">
+                        El numero es obligatorio*
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="city">Ciudad</label>
+                      <input
+                        id="city"
+                        type="text"
+                        formControlName="city"
+                        class="form-control"
+                      />
+                      <span class="invalid-feedback">
+                        La ciudad es obligatoria*
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="address">Dirrecion</label>
+                      <input
+                        id="address"
+                        type="text"
+                        placeholder="Cartagena calle 30 #40-b43"
+                        formControlName="address"
+                        class="form-control"
+                      />
+                      <span class="invalid-feedback">
+                        La dirrecion es obligatoria
+                      </span>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ============================================================== -->
+          <!-- end Create   -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

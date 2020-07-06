@@ -12,6 +12,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { ListarClientesComponent } from './listar-clientes/listar-clientes.component';
 import { LocalesComponent } from './locales/locales.component';
 import { ListarLocalesComponent } from './listar-locales/listar-locales.component';
+import { GenerarFacturaComponent } from './generar-factura/generar-factura.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ListarLocalesComponent } from './listar-locales/listar-locales.componen
     ListarClientesComponent,
     LocalesComponent,
     ListarLocalesComponent,
+    GenerarFacturaComponent,
   ],
   imports: [CommonModule, SharedModule, AppPagesRouting, ReactiveFormsModule],
 })

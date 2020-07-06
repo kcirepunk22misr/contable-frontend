@@ -6,14 +6,12 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 
-
 @Component({
   selector: 'app-listar-locales',
   templateUrl: './listar-locales.component.html',
-  styleUrls: ['./listar-locales.component.css']
+  styleUrls: ['./listar-locales.component.css'],
 })
 export class ListarLocalesComponent implements OnInit, OnDestroy {
-
   page: number = 0;
   number_pages: any[];
   prev_page: number;
@@ -26,19 +24,18 @@ export class ListarLocalesComponent implements OnInit, OnDestroy {
     private _localesService: LocalesService,
     private _usService: UserService,
     private toastr: ToastrService,
-    private _activateRoute: ActivatedRoute,
+    private _activateRoute: ActivatedRoute
   ) {
     this.token = _usService.getToken;
   }
 
   ngOnInit(): void {
-    this.loadQuryId()
+    this.loadQuryId();
   }
 
   ngOnDestroy() {
     this.loadQuryId().unsubscribe();
     this.getLocales().unsubscribe();
-
   }
 
   loadQuryId() {
@@ -56,11 +53,14 @@ export class ListarLocalesComponent implements OnInit, OnDestroy {
   }
 
   getLocales() {
-    return this._localesService.getLocales(this.page, this.token).subscribe(resp => {
-      this.locales = [];
-      this.locales.push(...resp.results);
+    return this._localesService
+      .getLocales(this.page, this.token)
+      .subscribe((resp) => {
+        this.locales = [];
 
-      let number_pages = [];
+        this.locales.push(...resp.results);
+
+        let number_pages = [];
         this.contador = [];
         let contador = 0;
         for (let i = 0; i < resp.count; i += 2) {
@@ -79,9 +79,8 @@ export class ListarLocalesComponent implements OnInit, OnDestroy {
         } else {
           this.next_page = resp.count - 2;
         }
-    })
+      });
   }
-
 
   deleteLocal(id: string, name: string) {
     Swal.fire({
@@ -101,6 +100,10 @@ export class ListarLocalesComponent implements OnInit, OnDestroy {
           });
       }
     });
+  }
+
+  generarFactura(locale: Locales) {
+    console.log(locale);
   }
 
   trackByFn(index, local: Locales): number {

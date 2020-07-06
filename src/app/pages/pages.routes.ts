@@ -6,6 +6,7 @@ import { AuthGuard } from '../guards/auth.guard';
 import { ListarClientesComponent } from './listar-clientes/listar-clientes.component';
 import { LocalesComponent } from './locales/locales.component';
 import { ListarLocalesComponent } from './listar-locales/listar-locales.component';
+import { GenerarFacturaComponent } from './generar-factura/generar-factura.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'local', component: LocalesComponent },
       { path: 'locales', component: ListarLocalesComponent },
       { path: 'update-local/:id', component: LocalesComponent },
+      { path: 'generar-factura/:id', component: GenerarFacturaComponent },
       { path: '**', pathMatch: 'full', component: Notfound404Component },
     ],
   },

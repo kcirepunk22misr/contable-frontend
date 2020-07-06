@@ -66,6 +66,11 @@
                       <span class="invalid-feedback">
                         El precio es obligatorio*
                       </span>
+                      <span class="mt-1">
+                        <strong>
+                          {{ forma.get("price").value | currency: "COP" }}
+                        </strong>
+                      </span>
                     </div>
                     <div class="form-group">
                       <label for="vat">IVA</label>
@@ -80,6 +85,21 @@
                       <span class="invalid-feedback">
                         El IVA es obligatoria*
                       </span>
+                    </div>
+                    <div *ngIf="id" class="form-group">
+                      <label for="client_name">Cliente</label>
+                      <select
+                        id="client_name"
+                        formControlName="client"
+                        class="form-control form-control-sm"
+                      >
+                        <option
+                          [value]="client.id"
+                          *ngFor="let client of clienteSimple"
+                        >
+                          {{ client.name }}
+                        </option>
+                      </select>
                     </div>
                     <div class="form-group">
                       <label for="observation">Observaciones</label>
@@ -98,10 +118,18 @@
                     </div>
                     <div class="row">
                       <div class="col-12 pl-0 text-right">
-                        <button *ngIf="!id" type="submit" class="btn btn-space btn-primary">
+                        <button
+                          *ngIf="!id"
+                          type="submit"
+                          class="btn btn-space btn-primary"
+                        >
                           Guardar Local <i class="far fa-building"></i>
                         </button>
-                        <button *ngIf="id" type="submit" class="btn btn-space btn-success">
+                        <button
+                          *ngIf="id"
+                          type="submit"
+                          class="btn btn-space btn-success"
+                        >
                           Actualizar Cliente <i class="far fa-building"></i>
                         </button>
                       </div>

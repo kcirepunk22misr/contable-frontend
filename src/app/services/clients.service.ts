@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Client, ClientsPages } from '../interfaces/interfaces';
+import { Client, ClientsPages, ClientSimple } from '../interfaces/interfaces';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { environment } from '@environments/environment';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,24 @@ export class ClientsService {
         headers,
       }
     );
+  }
+
+  getClientsToLocal(token: string): Observable<ClientSimple[]> {
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Token ${token}`);
+    return this._http
+      .get<ClientsPages>(`${this.URL}/clients/?limit=9000`, {
+        headers,
+      })
+      .pipe(
+        map((clientPage) => clientPage.results),
+        map((client) =>
+          client.map((client) => {
+            return { name: client.name, id: client.id };
+          })
+        )
+      );
   }
 
   getClientById(id: string, token: string): Observable<Client> {

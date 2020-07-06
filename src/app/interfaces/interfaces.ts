@@ -14,7 +14,7 @@ export interface Login {
 
 export interface Locales {
   id: number;
-  client?: string | null;
+  client?: Client | null;
   name: string;
   location: string;
   price: number;
@@ -33,11 +33,16 @@ export interface ClientsPages {
   previous: string;
 }
 
+export interface ClientSimple {
+  id: number;
+  name: string;
+}
+
 export interface LocalesPages {
   count: number;
   next: string;
   previous: string;
-  results: Locales[]
+  results: Locales[];
 }
 
 export interface Navegacion {

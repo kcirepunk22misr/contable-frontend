@@ -31,20 +31,23 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>name</th>
-                <th>location</th>
-                <th>price</th>
-                <th>vat</th>
-                <th>observation</th>
+                <th>Cliente</th>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Precio</th>
+                <th>IVA</th>
+                <th>Observaciones</th>
                 <th>Ajustes</th>
+                <th>Generar Factura</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let locale of locales; trackBy: trackByFn">
                 <td>{{ locale.id }}</td>
+                <td>{{ locale.client?.name || "Sin Cliente" }}</td>
                 <td>{{ locale.name }}</td>
                 <td>{{ locale.location }}</td>
-                <td>{{ locale.price }}</td>
+                <td>{{ locale.price | currency: "COP" }}</td>
                 <td>{{ locale.vat }}</td>
                 <td>{{ locale.observation }}</td>
                 <td>
@@ -59,6 +62,15 @@
                     class="btn btn-sm btn-danger"
                   >
                     <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+                <td>
+                  <button
+                    [disabled]="locale.client?.name === null"
+                    [routerLink]="['/contable/generar-factura', locale.id]"
+                    class="btn btn-primary"
+                  >
+                    Generar
                   </button>
                 </td>
               </tr>
