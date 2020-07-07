@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Locales } from '@interfaces/interfaces';
 import { ActivatedRoute } from '@angular/router';
+import { Client } from '@interfaces/interfaces';
+import { disableDebugTools } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-form-client',
@@ -11,21 +13,37 @@ import { ActivatedRoute } from '@angular/router';
 export class FormClientComponent implements OnInit {
   forma: FormGroup;
   localAndClient: Locales;
+  @Input() client: Client;
 
-  constructor(
-    private fb: FormBuilder,
-    private _activateRoute: ActivatedRoute
-  ) {}
+  constructor(private fb: FormBuilder, private _activateRoute: ActivatedRoute) {
+    this.createForm();
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setFormValues();
+  }
 
   createForm() {
     this.forma = this.fb.group({
-      name: ['', [Validators.required, Validators.pattern('[A-Za-z ]+')]],
-      nit_number: ['', [Validators.required, Validators.pattern('[0-9- ]+')]],
-      phone_number: ['', Validators.required],
-      city: ['', [Validators.required, Validators.pattern('[A-Za-z ]+')]],
-      address: ['', Validators.required],
+      name: [
+        { value: '', disabled: true },
+        [Validators.required, Validators.pattern('[A-Za-z ]+')],
+      ],
+      nit_number: [
+        { value: '', disabled: true },
+        [Validators.required, Validators.pattern('[0-9- ]+')],
+      ],
+      phone_number: [{ value: '', disabled: true }, , Validators.required],
+      city: [
+        { value: '', disabled: true },
+        [Validators.required, Validators.pattern('[A-Za-z ]+')],
+      ],
+      address: [{ value: '', disabled: true }, Validators.required],
     });
+  }
+
+  setFormValues() {
+    delete this.client.id;
+    this.forma.setValue(this.client);
   }
 }

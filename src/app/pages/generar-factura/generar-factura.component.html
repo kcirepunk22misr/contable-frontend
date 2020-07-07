@@ -1,1 +1,86 @@
-<p>generar-factura works!</p>
+<app-form-client *ngFor="let c of client" [client]="c"></app-form-client>
+<app-form-locale *ngFor="let l of local" [local]="l"></app-form-locale>
+
+<div class="row animate__animated animate__fadeIn">
+  <div class="col-xl-10">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header" id="top">
+          <h2>Precio de los servicios</h2>
+          <hr />
+
+          <!-- ============================================================== -->
+          <!--  Create User  -->
+          <!-- ============================================================== -->
+          <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+              <div class="card">
+                <h5 class="card-header">Informacion Del Cliente</h5>
+                <div class="card-body">
+                  <form
+                    #formClient
+                    autocomplete="off"
+                    [formGroup]="forma"
+                    (ngSubmit)="save()"
+                  >
+                    <div class="form-group">
+                      <label for="administration_price"
+                        >Precio De Administraccion</label
+                      >
+                      <input
+                        type="number"
+                        formControlName="administration_price"
+                        class="form-control"
+                      />
+                      <span>
+                        {{
+                          getServicioCOP("administration_price")
+                            | currency: "COP "
+                        }}
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="water_service_price">Servicio Del Agua</label>
+                      <input
+                        type="number"
+                        formControlName="water_service_price"
+                        class="form-control"
+                      />
+                      <span>
+                        {{
+                          getServicioCOP("water_service_price")
+                            | currency: "COP "
+                        }}
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="energy_service_price"
+                        >Servicio De Electricidad</label
+                      >
+                      <input
+                        type="number"
+                        formControlName="energy_service_price"
+                        class="form-control"
+                      />
+                      <span>
+                        {{
+                          getServicioCOP("energy_service_price")
+                            | currency: "COP "
+                        }}
+                      </span>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">
+                      Generar
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ============================================================== -->
+          <!-- end Create   -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

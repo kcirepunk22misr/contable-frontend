@@ -14,7 +14,7 @@ export interface Login {
 
 export interface Locales {
   id: number;
-  client?: Client | null;
+  client: Client | null;
   name: string;
   location: string;
   price: number;
@@ -48,4 +48,23 @@ export interface LocalesPages {
 export interface Navegacion {
   name: string;
   url: string;
+}
+
+export interface Facture {
+  id: number;
+  facture_number: number;
+  client_name: string;
+  client_nit: string;
+  facture_date: string;
+  phone: number;
+  city: string;
+  address: string;
+  way_to_pay: string;
+  place_name: string;
+  place_price: number;
+  vat: number;
+  administration_price: number;
+  water_service_price: number;
+  energy_service_price: number;
+  paid: boolean;
 }

@@ -13,6 +13,8 @@ import { ListarClientesComponent } from './listar-clientes/listar-clientes.compo
 import { LocalesComponent } from './locales/locales.component';
 import { ListarLocalesComponent } from './listar-locales/listar-locales.component';
 import { GenerarFacturaComponent } from './generar-factura/generar-factura.component';
+import { ComponentsModule } from '../components/components.module';
+import { FacturaComponent } from './factura/factura.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,14 @@ import { GenerarFacturaComponent } from './generar-factura/generar-factura.compo
     LocalesComponent,
     ListarLocalesComponent,
     GenerarFacturaComponent,
+    FacturaComponent,
   ],
-  imports: [CommonModule, SharedModule, AppPagesRouting, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    AppPagesRouting,
+    ReactiveFormsModule,
+    ComponentsModule,
+  ],
 })
 export class PagesModule {}

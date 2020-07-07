@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "~9.1.11",
     "@angular/router": "~9.1.11",
     "animate.css": "^4.1.0",
+    "html2pdf.js": "^0.9.2",
+    "moment": "^2.27.0",
     "ngx-toastr": "^12.1.0",
     "rxjs": "~6.5.4",
     "sweetalert2": "^9.15.2",

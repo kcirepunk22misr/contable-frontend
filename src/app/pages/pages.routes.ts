@@ -7,6 +7,7 @@ import { ListarClientesComponent } from './listar-clientes/listar-clientes.compo
 import { LocalesComponent } from './locales/locales.component';
 import { ListarLocalesComponent } from './listar-locales/listar-locales.component';
 import { GenerarFacturaComponent } from './generar-factura/generar-factura.component';
+import { FacturaComponent } from './factura/factura.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'locales', component: ListarLocalesComponent },
       { path: 'update-local/:id', component: LocalesComponent },
       { path: 'generar-factura/:id', component: GenerarFacturaComponent },
+      { path: 'factura', component: FacturaComponent },
       { path: '**', pathMatch: 'full', component: Notfound404Component },
     ],
   },

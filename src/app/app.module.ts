@@ -13,8 +13,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './SignInSignUp/login/login.component';
 import { Notfound404Component } from './notfound404/notfound404.component';
 import { RegisterComponent } from './SignInSignUp/register/register.component';
-import { FormClientComponent } from './components/form-client/form-client.component';
-import { FormLocaleComponent } from './components/form-locale/form-locale.component';
+import { ListarFacturasComponent } from './listar-facturas/listar-facturas.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { FormLocaleComponent } from './components/form-locale/form-locale.compon
     LoginComponent,
     Notfound404Component,
     RegisterComponent,
-    FormClientComponent,
-    FormLocaleComponent,
+    ListarFacturasComponent,
   ],
   imports: [
     BrowserModule,
